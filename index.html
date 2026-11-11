@@ -178,7 +178,8 @@ ul,ol{margin:0;padding:0;list-style:none}
 img,svg{display:block;max-width:100%}
 a{color:var(--brand)}
 button{font:inherit}
-:focus-visible{outline:2px solid var(--brand);outline-offset:2px;border-radius:4px}
+:focus{outline:none}
+:focus-visible{outline:none;filter:brightness(.88)}
 .sr-only{
   position:absolute;width:1px;height:1px;padding:0;margin:-1px;
   overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;
@@ -614,6 +615,9 @@ tr.is-match th:first-child{box-shadow:inset 2px 0 0 var(--brand)}
 .city:hover{border-color:var(--brand-line)}
 .city-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
 .city-head h3{font-size:14.5px}
+.city-link,.county-link{color:var(--brand);text-decoration:none;cursor:pointer}
+.city-link:hover,.county-link:hover{color:var(--brand-hover);text-decoration:underline}
+.zip-links .zip-more{color:var(--brand);background:var(--brand-wash);font-weight:600}
 .city-head .n{font-size:11.5px;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
 .zip-links{margin-top:12px;display:flex;flex-wrap:wrap;gap:6px}
 .zip-links a{
@@ -627,6 +631,10 @@ tr.is-match th:first-child{box-shadow:inset 2px 0 0 var(--brand)}
   font-size:11px;line-height:1.4;pointer-events:none;opacity:0;z-index:5;
 }
 .zip-links a:hover::after,.zip-links a:focus-visible::after{opacity:1}
+.zip-links .zip-more::after{content:none}
+.zip-popover{position:fixed;inset:auto;margin:0;width:280px;max-width:calc(100vw - 32px);padding:16px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);box-shadow:var(--shadow-pop)}
+.zip-popover h4{margin:0;font-size:14px;padding-right:24px}
+.zip-popover-close{position:absolute;right:8px;top:8px;border:0;background:transparent;color:var(--muted);padding:3px 7px;cursor:pointer;font-size:18px}
 .city.is-target{background:#f7faff}
 .city:target{background:#f7faff}
 tr:target th,tr:target td{background:#e9f0ff}
@@ -737,7 +745,7 @@ tr:target th,tr:target td{background:#e9f0ff}
 @media (min-width:900px){
   .facts{grid-template-columns:repeat(6,minmax(0,1fr))}
   .stats{grid-template-columns:repeat(3,minmax(0,1fr))}
-  .groups{grid-template-columns:1fr 1fr}
+  .groups{grid-template-columns:minmax(0,1fr)}
   .city-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
 }
 @media (max-width:1279px){
@@ -1141,812 +1149,812 @@ tr:target th,tr:target td{background:#e9f0ff}
               <tbody id="zip-rows">
                 <tr id="zip-32114" data-zip="32114" data-city="Daytona Beach" data-county="Volusia" data-region="Central">
                   <th scope="row">32114</th>
-                  <td>Daytona Beach</td>
-                  <td>Volusia</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Daytona Beach</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Volusia</a></td>
                   <td><span class="region">Central</span></td>
                 </tr>
                 <tr id="zip-32117" data-zip="32117" data-city="Daytona Beach" data-county="Volusia" data-region="Central">
                   <th scope="row">32117</th>
-                  <td>Daytona Beach</td>
-                  <td>Volusia</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Daytona Beach</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Volusia</a></td>
                   <td><span class="region">Central</span></td>
                 </tr>
                 <tr id="zip-32118" data-zip="32118" data-city="Daytona Beach" data-county="Volusia" data-region="Central">
                   <th scope="row">32118</th>
-                  <td>Daytona Beach</td>
-                  <td>Volusia</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Daytona Beach</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Volusia</a></td>
                   <td><span class="region">Central</span></td>
                 </tr>
                 <tr id="zip-32119" data-zip="32119" data-city="Daytona Beach" data-county="Volusia" data-region="Central">
                   <th scope="row">32119</th>
-                  <td>Daytona Beach</td>
-                  <td>Volusia</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Daytona Beach</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Volusia</a></td>
                   <td><span class="region">Central</span></td>
                 </tr>
                 <tr id="zip-32124" data-zip="32124" data-city="Daytona Beach" data-county="Volusia" data-region="Central">
                   <th scope="row">32124</th>
-                  <td>Daytona Beach</td>
-                  <td>Volusia</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Daytona Beach</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Volusia</a></td>
                   <td><span class="region">Central</span></td>
                 </tr>
                 <tr id="zip-32202" data-zip="32202" data-city="Jacksonville" data-county="Duval" data-region="Northeast">
                   <th scope="row">32202</th>
-                  <td>Jacksonville</td>
-                  <td>Duval</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Jacksonville</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Duval</a></td>
                   <td><span class="region">Northeast</span></td>
                 </tr>
                 <tr id="zip-32204" data-zip="32204" data-city="Jacksonville" data-county="Duval" data-region="Northeast">
                   <th scope="row">32204</th>
-                  <td>Jacksonville</td>
-                  <td>Duval</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Jacksonville</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Duval</a></td>
                   <td><span class="region">Northeast</span></td>
                 </tr>
                 <tr id="zip-32207" data-zip="32207" data-city="Jacksonville" data-county="Duval" data-region="Northeast">
                   <th scope="row">32207</th>
-                  <td>Jacksonville</td>
-                  <td>Duval</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Jacksonville</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Duval</a></td>
                   <td><span class="region">Northeast</span></td>
                 </tr>
                 <tr id="zip-32210" data-zip="32210" data-city="Jacksonville" data-county="Duval" data-region="Northeast">
                   <th scope="row">32210</th>
-                  <td>Jacksonville</td>
-                  <td>Duval</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Jacksonville</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Duval</a></td>
                   <td><span class="region">Northeast</span></td>
                 </tr>
                 <tr id="zip-32211" data-zip="32211" data-city="Jacksonville" data-county="Duval" data-region="Northeast">
                   <th scope="row">32211</th>
-                  <td>Jacksonville</td>
-                  <td>Duval</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Jacksonville</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Duval</a></td>
                   <td><span class="region">Northeast</span></td>
                 </tr>
                 <tr id="zip-32216" data-zip="32216" data-city="Jacksonville" data-county="Duval" data-region="Northeast">
                   <th scope="row">32216</th>
-                  <td>Jacksonville</td>
-                  <td>Duval</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Jacksonville</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Duval</a></td>
                   <td><span class="region">Northeast</span></td>
                 </tr>
                 <tr id="zip-32218" data-zip="32218" data-city="Jacksonville" data-county="Duval" data-region="Northeast">
                   <th scope="row">32218</th>
-                  <td>Jacksonville</td>
-                  <td>Duval</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Jacksonville</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Duval</a></td>
                   <td><span class="region">Northeast</span></td>
                 </tr>
                 <tr id="zip-32224" data-zip="32224" data-city="Jacksonville" data-county="Duval" data-region="Northeast">
                   <th scope="row">32224</th>
-                  <td>Jacksonville</td>
-                  <td>Duval</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Jacksonville</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Duval</a></td>
                   <td><span class="region">Northeast</span></td>
                 </tr>
                 <tr id="zip-32246" data-zip="32246" data-city="Jacksonville" data-county="Duval" data-region="Northeast">
                   <th scope="row">32246</th>
-                  <td>Jacksonville</td>
-                  <td>Duval</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Jacksonville</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Duval</a></td>
                   <td><span class="region">Northeast</span></td>
                 </tr>
                 <tr id="zip-32277" data-zip="32277" data-city="Jacksonville" data-county="Duval" data-region="Northeast">
                   <th scope="row">32277</th>
-                  <td>Jacksonville</td>
-                  <td>Duval</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Jacksonville</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Duval</a></td>
                   <td><span class="region">Northeast</span></td>
                 </tr>
                 <tr id="zip-32301" data-zip="32301" data-city="Tallahassee" data-county="Leon" data-region="Panhandle">
                   <th scope="row">32301</th>
-                  <td>Tallahassee</td>
-                  <td>Leon</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Tallahassee</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Leon</a></td>
                   <td><span class="region">Panhandle</span></td>
                 </tr>
                 <tr id="zip-32303" data-zip="32303" data-city="Tallahassee" data-county="Leon" data-region="Panhandle">
                   <th scope="row">32303</th>
-                  <td>Tallahassee</td>
-                  <td>Leon</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Tallahassee</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Leon</a></td>
                   <td><span class="region">Panhandle</span></td>
                 </tr>
                 <tr id="zip-32304" data-zip="32304" data-city="Tallahassee" data-county="Leon" data-region="Panhandle">
                   <th scope="row">32304</th>
-                  <td>Tallahassee</td>
-                  <td>Leon</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Tallahassee</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Leon</a></td>
                   <td><span class="region">Panhandle</span></td>
                 </tr>
                 <tr id="zip-32308" data-zip="32308" data-city="Tallahassee" data-county="Leon" data-region="Panhandle">
                   <th scope="row">32308</th>
-                  <td>Tallahassee</td>
-                  <td>Leon</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Tallahassee</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Leon</a></td>
                   <td><span class="region">Panhandle</span></td>
                 </tr>
                 <tr id="zip-32312" data-zip="32312" data-city="Tallahassee" data-county="Leon" data-region="Panhandle">
                   <th scope="row">32312</th>
-                  <td>Tallahassee</td>
-                  <td>Leon</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Tallahassee</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Leon</a></td>
                   <td><span class="region">Panhandle</span></td>
                 </tr>
                 <tr id="zip-32317" data-zip="32317" data-city="Tallahassee" data-county="Leon" data-region="Panhandle">
                   <th scope="row">32317</th>
-                  <td>Tallahassee</td>
-                  <td>Leon</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Tallahassee</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Leon</a></td>
                   <td><span class="region">Panhandle</span></td>
                 </tr>
                 <tr id="zip-32501" data-zip="32501" data-city="Pensacola" data-county="Escambia" data-region="Panhandle">
                   <th scope="row">32501</th>
-                  <td>Pensacola</td>
-                  <td>Escambia</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Pensacola</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Escambia</a></td>
                   <td><span class="region">Panhandle</span></td>
                 </tr>
                 <tr id="zip-32503" data-zip="32503" data-city="Pensacola" data-county="Escambia" data-region="Panhandle">
                   <th scope="row">32503</th>
-                  <td>Pensacola</td>
-                  <td>Escambia</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Pensacola</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Escambia</a></td>
                   <td><span class="region">Panhandle</span></td>
                 </tr>
                 <tr id="zip-32504" data-zip="32504" data-city="Pensacola" data-county="Escambia" data-region="Panhandle">
                   <th scope="row">32504</th>
-                  <td>Pensacola</td>
-                  <td>Escambia</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Pensacola</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Escambia</a></td>
                   <td><span class="region">Panhandle</span></td>
                 </tr>
                 <tr id="zip-32505" data-zip="32505" data-city="Pensacola" data-county="Escambia" data-region="Panhandle">
                   <th scope="row">32505</th>
-                  <td>Pensacola</td>
-                  <td>Escambia</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Pensacola</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Escambia</a></td>
                   <td><span class="region">Panhandle</span></td>
                 </tr>
                 <tr id="zip-32506" data-zip="32506" data-city="Pensacola" data-county="Escambia" data-region="Panhandle">
                   <th scope="row">32506</th>
-                  <td>Pensacola</td>
-                  <td>Escambia</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Pensacola</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Escambia</a></td>
                   <td><span class="region">Panhandle</span></td>
                 </tr>
                 <tr id="zip-32507" data-zip="32507" data-city="Pensacola" data-county="Escambia" data-region="Panhandle">
                   <th scope="row">32507</th>
-                  <td>Pensacola</td>
-                  <td>Escambia</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Pensacola</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Escambia</a></td>
                   <td><span class="region">Panhandle</span></td>
                 </tr>
                 <tr id="zip-32514" data-zip="32514" data-city="Pensacola" data-county="Escambia" data-region="Panhandle">
                   <th scope="row">32514</th>
-                  <td>Pensacola</td>
-                  <td>Escambia</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Pensacola</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Escambia</a></td>
                   <td><span class="region">Panhandle</span></td>
                 </tr>
                 <tr id="zip-32526" data-zip="32526" data-city="Pensacola" data-county="Escambia" data-region="Panhandle">
                   <th scope="row">32526</th>
-                  <td>Pensacola</td>
-                  <td>Escambia</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Pensacola</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Escambia</a></td>
                   <td><span class="region">Panhandle</span></td>
                 </tr>
                 <tr id="zip-32601" data-zip="32601" data-city="Gainesville" data-county="Alachua" data-region="Northeast">
                   <th scope="row">32601</th>
-                  <td>Gainesville</td>
-                  <td>Alachua</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Gainesville</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Alachua</a></td>
                   <td><span class="region">Northeast</span></td>
                 </tr>
                 <tr id="zip-32605" data-zip="32605" data-city="Gainesville" data-county="Alachua" data-region="Northeast">
                   <th scope="row">32605</th>
-                  <td>Gainesville</td>
-                  <td>Alachua</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Gainesville</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Alachua</a></td>
                   <td><span class="region">Northeast</span></td>
                 </tr>
                 <tr id="zip-32606" data-zip="32606" data-city="Gainesville" data-county="Alachua" data-region="Northeast">
                   <th scope="row">32606</th>
-                  <td>Gainesville</td>
-                  <td>Alachua</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Gainesville</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Alachua</a></td>
                   <td><span class="region">Northeast</span></td>
                 </tr>
                 <tr id="zip-32608" data-zip="32608" data-city="Gainesville" data-county="Alachua" data-region="Northeast">
                   <th scope="row">32608</th>
-                  <td>Gainesville</td>
-                  <td>Alachua</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Gainesville</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Alachua</a></td>
                   <td><span class="region">Northeast</span></td>
                 </tr>
                 <tr id="zip-32609" data-zip="32609" data-city="Gainesville" data-county="Alachua" data-region="Northeast">
                   <th scope="row">32609</th>
-                  <td>Gainesville</td>
-                  <td>Alachua</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Gainesville</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Alachua</a></td>
                   <td><span class="region">Northeast</span></td>
                 </tr>
                 <tr id="zip-32801" data-zip="32801" data-city="Orlando" data-county="Orange" data-region="Central">
                   <th scope="row">32801</th>
-                  <td>Orlando</td>
-                  <td>Orange</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Orlando</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Orange</a></td>
                   <td><span class="region">Central</span></td>
                 </tr>
                 <tr id="zip-32803" data-zip="32803" data-city="Orlando" data-county="Orange" data-region="Central">
                   <th scope="row">32803</th>
-                  <td>Orlando</td>
-                  <td>Orange</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Orlando</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Orange</a></td>
                   <td><span class="region">Central</span></td>
                 </tr>
                 <tr id="zip-32806" data-zip="32806" data-city="Orlando" data-county="Orange" data-region="Central">
                   <th scope="row">32806</th>
-                  <td>Orlando</td>
-                  <td>Orange</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Orlando</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Orange</a></td>
                   <td><span class="region">Central</span></td>
                 </tr>
                 <tr id="zip-32809" data-zip="32809" data-city="Orlando" data-county="Orange" data-region="Central">
                   <th scope="row">32809</th>
-                  <td>Orlando</td>
-                  <td>Orange</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Orlando</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Orange</a></td>
                   <td><span class="region">Central</span></td>
                 </tr>
                 <tr id="zip-32819" data-zip="32819" data-city="Orlando" data-county="Orange" data-region="Central">
                   <th scope="row">32819</th>
-                  <td>Orlando</td>
-                  <td>Orange</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Orlando</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Orange</a></td>
                   <td><span class="region">Central</span></td>
                 </tr>
                 <tr id="zip-32822" data-zip="32822" data-city="Orlando" data-county="Orange" data-region="Central">
                   <th scope="row">32822</th>
-                  <td>Orlando</td>
-                  <td>Orange</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Orlando</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Orange</a></td>
                   <td><span class="region">Central</span></td>
                 </tr>
                 <tr id="zip-32828" data-zip="32828" data-city="Orlando" data-county="Orange" data-region="Central">
                   <th scope="row">32828</th>
-                  <td>Orlando</td>
-                  <td>Orange</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Orlando</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Orange</a></td>
                   <td><span class="region">Central</span></td>
                 </tr>
                 <tr id="zip-32839" data-zip="32839" data-city="Orlando" data-county="Orange" data-region="Central">
                   <th scope="row">32839</th>
-                  <td>Orlando</td>
-                  <td>Orange</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Orlando</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Orange</a></td>
                   <td><span class="region">Central</span></td>
                 </tr>
                 <tr id="zip-32901" data-zip="32901" data-city="Melbourne" data-county="Brevard" data-region="Central">
                   <th scope="row">32901</th>
-                  <td>Melbourne</td>
-                  <td>Brevard</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Melbourne</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Brevard</a></td>
                   <td><span class="region">Central</span></td>
                 </tr>
                 <tr id="zip-32904" data-zip="32904" data-city="Melbourne" data-county="Brevard" data-region="Central">
                   <th scope="row">32904</th>
-                  <td>Melbourne</td>
-                  <td>Brevard</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Melbourne</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Brevard</a></td>
                   <td><span class="region">Central</span></td>
                 </tr>
                 <tr id="zip-32905" data-zip="32905" data-city="Melbourne" data-county="Brevard" data-region="Central">
                   <th scope="row">32905</th>
-                  <td>Melbourne</td>
-                  <td>Brevard</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Melbourne</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Brevard</a></td>
                   <td><span class="region">Central</span></td>
                 </tr>
                 <tr id="zip-32934" data-zip="32934" data-city="Melbourne" data-county="Brevard" data-region="Central">
                   <th scope="row">32934</th>
-                  <td>Melbourne</td>
-                  <td>Brevard</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Melbourne</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Brevard</a></td>
                   <td><span class="region">Central</span></td>
                 </tr>
                 <tr id="zip-32935" data-zip="32935" data-city="Melbourne" data-county="Brevard" data-region="Central">
                   <th scope="row">32935</th>
-                  <td>Melbourne</td>
-                  <td>Brevard</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Melbourne</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Brevard</a></td>
                   <td><span class="region">Central</span></td>
                 </tr>
                 <tr id="zip-32940" data-zip="32940" data-city="Melbourne" data-county="Brevard" data-region="Central">
                   <th scope="row">32940</th>
-                  <td>Melbourne</td>
-                  <td>Brevard</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Melbourne</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Brevard</a></td>
                   <td><span class="region">Central</span></td>
                 </tr>
                 <tr id="zip-33010" data-zip="33010" data-city="Hialeah" data-county="Miami-Dade" data-region="Southeast">
                   <th scope="row">33010</th>
-                  <td>Hialeah</td>
-                  <td>Miami-Dade</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Hialeah</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Miami-Dade</a></td>
                   <td><span class="region">Southeast</span></td>
                 </tr>
                 <tr id="zip-33012" data-zip="33012" data-city="Hialeah" data-county="Miami-Dade" data-region="Southeast">
                   <th scope="row">33012</th>
-                  <td>Hialeah</td>
-                  <td>Miami-Dade</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Hialeah</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Miami-Dade</a></td>
                   <td><span class="region">Southeast</span></td>
                 </tr>
                 <tr id="zip-33013" data-zip="33013" data-city="Hialeah" data-county="Miami-Dade" data-region="Southeast">
                   <th scope="row">33013</th>
-                  <td>Hialeah</td>
-                  <td>Miami-Dade</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Hialeah</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Miami-Dade</a></td>
                   <td><span class="region">Southeast</span></td>
                 </tr>
                 <tr id="zip-33016" data-zip="33016" data-city="Hialeah" data-county="Miami-Dade" data-region="Southeast">
                   <th scope="row">33016</th>
-                  <td>Hialeah</td>
-                  <td>Miami-Dade</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Hialeah</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Miami-Dade</a></td>
                   <td><span class="region">Southeast</span></td>
                 </tr>
                 <tr id="zip-33125" data-zip="33125" data-city="Miami" data-county="Miami-Dade" data-region="Southeast">
                   <th scope="row">33125</th>
-                  <td>Miami</td>
-                  <td>Miami-Dade</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Miami</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Miami-Dade</a></td>
                   <td><span class="region">Southeast</span></td>
                 </tr>
                 <tr id="zip-33127" data-zip="33127" data-city="Miami" data-county="Miami-Dade" data-region="Southeast">
                   <th scope="row">33127</th>
-                  <td>Miami</td>
-                  <td>Miami-Dade</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Miami</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Miami-Dade</a></td>
                   <td><span class="region">Southeast</span></td>
                 </tr>
                 <tr id="zip-33130" data-zip="33130" data-city="Miami" data-county="Miami-Dade" data-region="Southeast">
                   <th scope="row">33130</th>
-                  <td>Miami</td>
-                  <td>Miami-Dade</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Miami</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Miami-Dade</a></td>
                   <td><span class="region">Southeast</span></td>
                 </tr>
                 <tr id="zip-33133" data-zip="33133" data-city="Miami" data-county="Miami-Dade" data-region="Southeast">
                   <th scope="row">33133</th>
-                  <td>Miami</td>
-                  <td>Miami-Dade</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Miami</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Miami-Dade</a></td>
                   <td><span class="region">Southeast</span></td>
                 </tr>
                 <tr id="zip-33135" data-zip="33135" data-city="Miami" data-county="Miami-Dade" data-region="Southeast">
                   <th scope="row">33135</th>
-                  <td>Miami</td>
-                  <td>Miami-Dade</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Miami</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Miami-Dade</a></td>
                   <td><span class="region">Southeast</span></td>
                 </tr>
                 <tr id="zip-33137" data-zip="33137" data-city="Miami" data-county="Miami-Dade" data-region="Southeast">
                   <th scope="row">33137</th>
-                  <td>Miami</td>
-                  <td>Miami-Dade</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Miami</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Miami-Dade</a></td>
                   <td><span class="region">Southeast</span></td>
                 </tr>
                 <tr id="zip-33142" data-zip="33142" data-city="Miami" data-county="Miami-Dade" data-region="Southeast">
                   <th scope="row">33142</th>
-                  <td>Miami</td>
-                  <td>Miami-Dade</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Miami</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Miami-Dade</a></td>
                   <td><span class="region">Southeast</span></td>
                 </tr>
                 <tr id="zip-33145" data-zip="33145" data-city="Miami" data-county="Miami-Dade" data-region="Southeast">
                   <th scope="row">33145</th>
-                  <td>Miami</td>
-                  <td>Miami-Dade</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Miami</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Miami-Dade</a></td>
                   <td><span class="region">Southeast</span></td>
                 </tr>
                 <tr id="zip-33301" data-zip="33301" data-city="Fort Lauderdale" data-county="Broward" data-region="Southeast">
                   <th scope="row">33301</th>
-                  <td>Fort Lauderdale</td>
-                  <td>Broward</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Fort Lauderdale</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Broward</a></td>
                   <td><span class="region">Southeast</span></td>
                 </tr>
                 <tr id="zip-33304" data-zip="33304" data-city="Fort Lauderdale" data-county="Broward" data-region="Southeast">
                   <th scope="row">33304</th>
-                  <td>Fort Lauderdale</td>
-                  <td>Broward</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Fort Lauderdale</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Broward</a></td>
                   <td><span class="region">Southeast</span></td>
                 </tr>
                 <tr id="zip-33305" data-zip="33305" data-city="Fort Lauderdale" data-county="Broward" data-region="Southeast">
                   <th scope="row">33305</th>
-                  <td>Fort Lauderdale</td>
-                  <td>Broward</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Fort Lauderdale</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Broward</a></td>
                   <td><span class="region">Southeast</span></td>
                 </tr>
                 <tr id="zip-33308" data-zip="33308" data-city="Fort Lauderdale" data-county="Broward" data-region="Southeast">
                   <th scope="row">33308</th>
-                  <td>Fort Lauderdale</td>
-                  <td>Broward</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Fort Lauderdale</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Broward</a></td>
                   <td><span class="region">Southeast</span></td>
                 </tr>
                 <tr id="zip-33311" data-zip="33311" data-city="Fort Lauderdale" data-county="Broward" data-region="Southeast">
                   <th scope="row">33311</th>
-                  <td>Fort Lauderdale</td>
-                  <td>Broward</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Fort Lauderdale</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Broward</a></td>
                   <td><span class="region">Southeast</span></td>
                 </tr>
                 <tr id="zip-33312" data-zip="33312" data-city="Fort Lauderdale" data-county="Broward" data-region="Southeast">
                   <th scope="row">33312</th>
-                  <td>Fort Lauderdale</td>
-                  <td>Broward</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Fort Lauderdale</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Broward</a></td>
                   <td><span class="region">Southeast</span></td>
                 </tr>
                 <tr id="zip-33315" data-zip="33315" data-city="Fort Lauderdale" data-county="Broward" data-region="Southeast">
                   <th scope="row">33315</th>
-                  <td>Fort Lauderdale</td>
-                  <td>Broward</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Fort Lauderdale</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Broward</a></td>
                   <td><span class="region">Southeast</span></td>
                 </tr>
                 <tr id="zip-33316" data-zip="33316" data-city="Fort Lauderdale" data-county="Broward" data-region="Southeast">
                   <th scope="row">33316</th>
-                  <td>Fort Lauderdale</td>
-                  <td>Broward</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Fort Lauderdale</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Broward</a></td>
                   <td><span class="region">Southeast</span></td>
                 </tr>
                 <tr id="zip-33401" data-zip="33401" data-city="West Palm Beach" data-county="Palm Beach" data-region="Southeast">
                   <th scope="row">33401</th>
-                  <td>West Palm Beach</td>
-                  <td>Palm Beach</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">West Palm Beach</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Palm Beach</a></td>
                   <td><span class="region">Southeast</span></td>
                 </tr>
                 <tr id="zip-33405" data-zip="33405" data-city="West Palm Beach" data-county="Palm Beach" data-region="Southeast">
                   <th scope="row">33405</th>
-                  <td>West Palm Beach</td>
-                  <td>Palm Beach</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">West Palm Beach</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Palm Beach</a></td>
                   <td><span class="region">Southeast</span></td>
                 </tr>
                 <tr id="zip-33407" data-zip="33407" data-city="West Palm Beach" data-county="Palm Beach" data-region="Southeast">
                   <th scope="row">33407</th>
-                  <td>West Palm Beach</td>
-                  <td>Palm Beach</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">West Palm Beach</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Palm Beach</a></td>
                   <td><span class="region">Southeast</span></td>
                 </tr>
                 <tr id="zip-33411" data-zip="33411" data-city="West Palm Beach" data-county="Palm Beach" data-region="Southeast">
                   <th scope="row">33411</th>
-                  <td>West Palm Beach</td>
-                  <td>Palm Beach</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">West Palm Beach</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Palm Beach</a></td>
                   <td><span class="region">Southeast</span></td>
                 </tr>
                 <tr id="zip-33415" data-zip="33415" data-city="West Palm Beach" data-county="Palm Beach" data-region="Southeast">
                   <th scope="row">33415</th>
-                  <td>West Palm Beach</td>
-                  <td>Palm Beach</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">West Palm Beach</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Palm Beach</a></td>
                   <td><span class="region">Southeast</span></td>
                 </tr>
                 <tr id="zip-33428" data-zip="33428" data-city="Boca Raton" data-county="Palm Beach" data-region="Southeast">
                   <th scope="row">33428</th>
-                  <td>Boca Raton</td>
-                  <td>Palm Beach</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Boca Raton</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Palm Beach</a></td>
                   <td><span class="region">Southeast</span></td>
                 </tr>
                 <tr id="zip-33431" data-zip="33431" data-city="Boca Raton" data-county="Palm Beach" data-region="Southeast">
                   <th scope="row">33431</th>
-                  <td>Boca Raton</td>
-                  <td>Palm Beach</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Boca Raton</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Palm Beach</a></td>
                   <td><span class="region">Southeast</span></td>
                 </tr>
                 <tr id="zip-33432" data-zip="33432" data-city="Boca Raton" data-county="Palm Beach" data-region="Southeast">
                   <th scope="row">33432</th>
-                  <td>Boca Raton</td>
-                  <td>Palm Beach</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Boca Raton</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Palm Beach</a></td>
                   <td><span class="region">Southeast</span></td>
                 </tr>
                 <tr id="zip-33433" data-zip="33433" data-city="Boca Raton" data-county="Palm Beach" data-region="Southeast">
                   <th scope="row">33433</th>
-                  <td>Boca Raton</td>
-                  <td>Palm Beach</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Boca Raton</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Palm Beach</a></td>
                   <td><span class="region">Southeast</span></td>
                 </tr>
                 <tr id="zip-33434" data-zip="33434" data-city="Boca Raton" data-county="Palm Beach" data-region="Southeast">
                   <th scope="row">33434</th>
-                  <td>Boca Raton</td>
-                  <td>Palm Beach</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Boca Raton</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Palm Beach</a></td>
                   <td><span class="region">Southeast</span></td>
                 </tr>
                 <tr id="zip-33487" data-zip="33487" data-city="Boca Raton" data-county="Palm Beach" data-region="Southeast">
                   <th scope="row">33487</th>
-                  <td>Boca Raton</td>
-                  <td>Palm Beach</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Boca Raton</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Palm Beach</a></td>
                   <td><span class="region">Southeast</span></td>
                 </tr>
                 <tr id="zip-33602" data-zip="33602" data-city="Tampa" data-county="Hillsborough" data-region="Tampa Bay">
                   <th scope="row">33602</th>
-                  <td>Tampa</td>
-                  <td>Hillsborough</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Tampa</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Hillsborough</a></td>
                   <td><span class="region">Tampa Bay</span></td>
                 </tr>
                 <tr id="zip-33603" data-zip="33603" data-city="Tampa" data-county="Hillsborough" data-region="Tampa Bay">
                   <th scope="row">33603</th>
-                  <td>Tampa</td>
-                  <td>Hillsborough</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Tampa</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Hillsborough</a></td>
                   <td><span class="region">Tampa Bay</span></td>
                 </tr>
                 <tr id="zip-33604" data-zip="33604" data-city="Tampa" data-county="Hillsborough" data-region="Tampa Bay">
                   <th scope="row">33604</th>
-                  <td>Tampa</td>
-                  <td>Hillsborough</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Tampa</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Hillsborough</a></td>
                   <td><span class="region">Tampa Bay</span></td>
                 </tr>
                 <tr id="zip-33606" data-zip="33606" data-city="Tampa" data-county="Hillsborough" data-region="Tampa Bay">
                   <th scope="row">33606</th>
-                  <td>Tampa</td>
-                  <td>Hillsborough</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Tampa</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Hillsborough</a></td>
                   <td><span class="region">Tampa Bay</span></td>
                 </tr>
                 <tr id="zip-33609" data-zip="33609" data-city="Tampa" data-county="Hillsborough" data-region="Tampa Bay">
                   <th scope="row">33609</th>
-                  <td>Tampa</td>
-                  <td>Hillsborough</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Tampa</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Hillsborough</a></td>
                   <td><span class="region">Tampa Bay</span></td>
                 </tr>
                 <tr id="zip-33611" data-zip="33611" data-city="Tampa" data-county="Hillsborough" data-region="Tampa Bay">
                   <th scope="row">33611</th>
-                  <td>Tampa</td>
-                  <td>Hillsborough</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Tampa</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Hillsborough</a></td>
                   <td><span class="region">Tampa Bay</span></td>
                 </tr>
                 <tr id="zip-33619" data-zip="33619" data-city="Tampa" data-county="Hillsborough" data-region="Tampa Bay">
                   <th scope="row">33619</th>
-                  <td>Tampa</td>
-                  <td>Hillsborough</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Tampa</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Hillsborough</a></td>
                   <td><span class="region">Tampa Bay</span></td>
                 </tr>
                 <tr id="zip-33629" data-zip="33629" data-city="Tampa" data-county="Hillsborough" data-region="Tampa Bay">
                   <th scope="row">33629</th>
-                  <td>Tampa</td>
-                  <td>Hillsborough</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Tampa</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Hillsborough</a></td>
                   <td><span class="region">Tampa Bay</span></td>
                 </tr>
                 <tr id="zip-33701" data-zip="33701" data-city="St. Petersburg" data-county="Pinellas" data-region="Tampa Bay">
                   <th scope="row">33701</th>
-                  <td>St. Petersburg</td>
-                  <td>Pinellas</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">St. Petersburg</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Pinellas</a></td>
                   <td><span class="region">Tampa Bay</span></td>
                 </tr>
                 <tr id="zip-33703" data-zip="33703" data-city="St. Petersburg" data-county="Pinellas" data-region="Tampa Bay">
                   <th scope="row">33703</th>
-                  <td>St. Petersburg</td>
-                  <td>Pinellas</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">St. Petersburg</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Pinellas</a></td>
                   <td><span class="region">Tampa Bay</span></td>
                 </tr>
                 <tr id="zip-33705" data-zip="33705" data-city="St. Petersburg" data-county="Pinellas" data-region="Tampa Bay">
                   <th scope="row">33705</th>
-                  <td>St. Petersburg</td>
-                  <td>Pinellas</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">St. Petersburg</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Pinellas</a></td>
                   <td><span class="region">Tampa Bay</span></td>
                 </tr>
                 <tr id="zip-33710" data-zip="33710" data-city="St. Petersburg" data-county="Pinellas" data-region="Tampa Bay">
                   <th scope="row">33710</th>
-                  <td>St. Petersburg</td>
-                  <td>Pinellas</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">St. Petersburg</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Pinellas</a></td>
                   <td><span class="region">Tampa Bay</span></td>
                 </tr>
                 <tr id="zip-33712" data-zip="33712" data-city="St. Petersburg" data-county="Pinellas" data-region="Tampa Bay">
                   <th scope="row">33712</th>
-                  <td>St. Petersburg</td>
-                  <td>Pinellas</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">St. Petersburg</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Pinellas</a></td>
                   <td><span class="region">Tampa Bay</span></td>
                 </tr>
                 <tr id="zip-33713" data-zip="33713" data-city="St. Petersburg" data-county="Pinellas" data-region="Tampa Bay">
                   <th scope="row">33713</th>
-                  <td>St. Petersburg</td>
-                  <td>Pinellas</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">St. Petersburg</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Pinellas</a></td>
                   <td><span class="region">Tampa Bay</span></td>
                 </tr>
                 <tr id="zip-33755" data-zip="33755" data-city="Clearwater" data-county="Pinellas" data-region="Tampa Bay">
                   <th scope="row">33755</th>
-                  <td>Clearwater</td>
-                  <td>Pinellas</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Clearwater</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Pinellas</a></td>
                   <td><span class="region">Tampa Bay</span></td>
                 </tr>
                 <tr id="zip-33756" data-zip="33756" data-city="Clearwater" data-county="Pinellas" data-region="Tampa Bay">
                   <th scope="row">33756</th>
-                  <td>Clearwater</td>
-                  <td>Pinellas</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Clearwater</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Pinellas</a></td>
                   <td><span class="region">Tampa Bay</span></td>
                 </tr>
                 <tr id="zip-33759" data-zip="33759" data-city="Clearwater" data-county="Pinellas" data-region="Tampa Bay">
                   <th scope="row">33759</th>
-                  <td>Clearwater</td>
-                  <td>Pinellas</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Clearwater</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Pinellas</a></td>
                   <td><span class="region">Tampa Bay</span></td>
                 </tr>
                 <tr id="zip-33761" data-zip="33761" data-city="Clearwater" data-county="Pinellas" data-region="Tampa Bay">
                   <th scope="row">33761</th>
-                  <td>Clearwater</td>
-                  <td>Pinellas</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Clearwater</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Pinellas</a></td>
                   <td><span class="region">Tampa Bay</span></td>
                 </tr>
                 <tr id="zip-33764" data-zip="33764" data-city="Clearwater" data-county="Pinellas" data-region="Tampa Bay">
                   <th scope="row">33764</th>
-                  <td>Clearwater</td>
-                  <td>Pinellas</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Clearwater</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Pinellas</a></td>
                   <td><span class="region">Tampa Bay</span></td>
                 </tr>
                 <tr id="zip-33801" data-zip="33801" data-city="Lakeland" data-county="Polk" data-region="Central">
                   <th scope="row">33801</th>
-                  <td>Lakeland</td>
-                  <td>Polk</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Lakeland</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Polk</a></td>
                   <td><span class="region">Central</span></td>
                 </tr>
                 <tr id="zip-33803" data-zip="33803" data-city="Lakeland" data-county="Polk" data-region="Central">
                   <th scope="row">33803</th>
-                  <td>Lakeland</td>
-                  <td>Polk</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Lakeland</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Polk</a></td>
                   <td><span class="region">Central</span></td>
                 </tr>
                 <tr id="zip-33805" data-zip="33805" data-city="Lakeland" data-county="Polk" data-region="Central">
                   <th scope="row">33805</th>
-                  <td>Lakeland</td>
-                  <td>Polk</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Lakeland</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Polk</a></td>
                   <td><span class="region">Central</span></td>
                 </tr>
                 <tr id="zip-33809" data-zip="33809" data-city="Lakeland" data-county="Polk" data-region="Central">
                   <th scope="row">33809</th>
-                  <td>Lakeland</td>
-                  <td>Polk</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Lakeland</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Polk</a></td>
                   <td><span class="region">Central</span></td>
                 </tr>
                 <tr id="zip-33811" data-zip="33811" data-city="Lakeland" data-county="Polk" data-region="Central">
                   <th scope="row">33811</th>
-                  <td>Lakeland</td>
-                  <td>Polk</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Lakeland</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Polk</a></td>
                   <td><span class="region">Central</span></td>
                 </tr>
                 <tr id="zip-33813" data-zip="33813" data-city="Lakeland" data-county="Polk" data-region="Central">
                   <th scope="row">33813</th>
-                  <td>Lakeland</td>
-                  <td>Polk</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Lakeland</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Polk</a></td>
                   <td><span class="region">Central</span></td>
                 </tr>
                 <tr id="zip-33901" data-zip="33901" data-city="Fort Myers" data-county="Lee" data-region="Southwest">
                   <th scope="row">33901</th>
-                  <td>Fort Myers</td>
-                  <td>Lee</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Fort Myers</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Lee</a></td>
                   <td><span class="region">Southwest</span></td>
                 </tr>
                 <tr id="zip-33904" data-zip="33904" data-city="Cape Coral" data-county="Lee" data-region="Southwest">
                   <th scope="row">33904</th>
-                  <td>Cape Coral</td>
-                  <td>Lee</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Cape Coral</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Lee</a></td>
                   <td><span class="region">Southwest</span></td>
                 </tr>
                 <tr id="zip-33907" data-zip="33907" data-city="Fort Myers" data-county="Lee" data-region="Southwest">
                   <th scope="row">33907</th>
-                  <td>Fort Myers</td>
-                  <td>Lee</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Fort Myers</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Lee</a></td>
                   <td><span class="region">Southwest</span></td>
                 </tr>
                 <tr id="zip-33908" data-zip="33908" data-city="Fort Myers" data-county="Lee" data-region="Southwest">
                   <th scope="row">33908</th>
-                  <td>Fort Myers</td>
-                  <td>Lee</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Fort Myers</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Lee</a></td>
                   <td><span class="region">Southwest</span></td>
                 </tr>
                 <tr id="zip-33909" data-zip="33909" data-city="Cape Coral" data-county="Lee" data-region="Southwest">
                   <th scope="row">33909</th>
-                  <td>Cape Coral</td>
-                  <td>Lee</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Cape Coral</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Lee</a></td>
                   <td><span class="region">Southwest</span></td>
                 </tr>
                 <tr id="zip-33914" data-zip="33914" data-city="Cape Coral" data-county="Lee" data-region="Southwest">
                   <th scope="row">33914</th>
-                  <td>Cape Coral</td>
-                  <td>Lee</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Cape Coral</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Lee</a></td>
                   <td><span class="region">Southwest</span></td>
                 </tr>
                 <tr id="zip-33916" data-zip="33916" data-city="Fort Myers" data-county="Lee" data-region="Southwest">
                   <th scope="row">33916</th>
-                  <td>Fort Myers</td>
-                  <td>Lee</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Fort Myers</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Lee</a></td>
                   <td><span class="region">Southwest</span></td>
                 </tr>
                 <tr id="zip-33919" data-zip="33919" data-city="Fort Myers" data-county="Lee" data-region="Southwest">
                   <th scope="row">33919</th>
-                  <td>Fort Myers</td>
-                  <td>Lee</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Fort Myers</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Lee</a></td>
                   <td><span class="region">Southwest</span></td>
                 </tr>
                 <tr id="zip-33990" data-zip="33990" data-city="Cape Coral" data-county="Lee" data-region="Southwest">
                   <th scope="row">33990</th>
-                  <td>Cape Coral</td>
-                  <td>Lee</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Cape Coral</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Lee</a></td>
                   <td><span class="region">Southwest</span></td>
                 </tr>
                 <tr id="zip-33991" data-zip="33991" data-city="Cape Coral" data-county="Lee" data-region="Southwest">
                   <th scope="row">33991</th>
-                  <td>Cape Coral</td>
-                  <td>Lee</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Cape Coral</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Lee</a></td>
                   <td><span class="region">Southwest</span></td>
                 </tr>
                 <tr id="zip-34102" data-zip="34102" data-city="Naples" data-county="Collier" data-region="Southwest">
                   <th scope="row">34102</th>
-                  <td>Naples</td>
-                  <td>Collier</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Naples</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Collier</a></td>
                   <td><span class="region">Southwest</span></td>
                 </tr>
                 <tr id="zip-34103" data-zip="34103" data-city="Naples" data-county="Collier" data-region="Southwest">
                   <th scope="row">34103</th>
-                  <td>Naples</td>
-                  <td>Collier</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Naples</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Collier</a></td>
                   <td><span class="region">Southwest</span></td>
                 </tr>
                 <tr id="zip-34104" data-zip="34104" data-city="Naples" data-county="Collier" data-region="Southwest">
                   <th scope="row">34104</th>
-                  <td>Naples</td>
-                  <td>Collier</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Naples</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Collier</a></td>
                   <td><span class="region">Southwest</span></td>
                 </tr>
                 <tr id="zip-34105" data-zip="34105" data-city="Naples" data-county="Collier" data-region="Southwest">
                   <th scope="row">34105</th>
-                  <td>Naples</td>
-                  <td>Collier</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Naples</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Collier</a></td>
                   <td><span class="region">Southwest</span></td>
                 </tr>
                 <tr id="zip-34108" data-zip="34108" data-city="Naples" data-county="Collier" data-region="Southwest">
                   <th scope="row">34108</th>
-                  <td>Naples</td>
-                  <td>Collier</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Naples</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Collier</a></td>
                   <td><span class="region">Southwest</span></td>
                 </tr>
                 <tr id="zip-34109" data-zip="34109" data-city="Naples" data-county="Collier" data-region="Southwest">
                   <th scope="row">34109</th>
-                  <td>Naples</td>
-                  <td>Collier</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Naples</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Collier</a></td>
                   <td><span class="region">Southwest</span></td>
                 </tr>
                 <tr id="zip-34231" data-zip="34231" data-city="Sarasota" data-county="Sarasota" data-region="Southwest">
                   <th scope="row">34231</th>
-                  <td>Sarasota</td>
-                  <td>Sarasota</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Sarasota</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Sarasota</a></td>
                   <td><span class="region">Southwest</span></td>
                 </tr>
                 <tr id="zip-34232" data-zip="34232" data-city="Sarasota" data-county="Sarasota" data-region="Southwest">
                   <th scope="row">34232</th>
-                  <td>Sarasota</td>
-                  <td>Sarasota</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Sarasota</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Sarasota</a></td>
                   <td><span class="region">Southwest</span></td>
                 </tr>
                 <tr id="zip-34236" data-zip="34236" data-city="Sarasota" data-county="Sarasota" data-region="Southwest">
                   <th scope="row">34236</th>
-                  <td>Sarasota</td>
-                  <td>Sarasota</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Sarasota</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Sarasota</a></td>
                   <td><span class="region">Southwest</span></td>
                 </tr>
                 <tr id="zip-34237" data-zip="34237" data-city="Sarasota" data-county="Sarasota" data-region="Southwest">
                   <th scope="row">34237</th>
-                  <td>Sarasota</td>
-                  <td>Sarasota</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Sarasota</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Sarasota</a></td>
                   <td><span class="region">Southwest</span></td>
                 </tr>
                 <tr id="zip-34239" data-zip="34239" data-city="Sarasota" data-county="Sarasota" data-region="Southwest">
                   <th scope="row">34239</th>
-                  <td>Sarasota</td>
-                  <td>Sarasota</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Sarasota</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Sarasota</a></td>
                   <td><span class="region">Southwest</span></td>
                 </tr>
                 <tr id="zip-34470" data-zip="34470" data-city="Ocala" data-county="Marion" data-region="Northeast">
                   <th scope="row">34470</th>
-                  <td>Ocala</td>
-                  <td>Marion</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Ocala</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Marion</a></td>
                   <td><span class="region">Northeast</span></td>
                 </tr>
                 <tr id="zip-34471" data-zip="34471" data-city="Ocala" data-county="Marion" data-region="Northeast">
                   <th scope="row">34471</th>
-                  <td>Ocala</td>
-                  <td>Marion</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Ocala</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Marion</a></td>
                   <td><span class="region">Northeast</span></td>
                 </tr>
                 <tr id="zip-34472" data-zip="34472" data-city="Ocala" data-county="Marion" data-region="Northeast">
                   <th scope="row">34472</th>
-                  <td>Ocala</td>
-                  <td>Marion</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Ocala</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Marion</a></td>
                   <td><span class="region">Northeast</span></td>
                 </tr>
                 <tr id="zip-34474" data-zip="34474" data-city="Ocala" data-county="Marion" data-region="Northeast">
                   <th scope="row">34474</th>
-                  <td>Ocala</td>
-                  <td>Marion</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Ocala</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Marion</a></td>
                   <td><span class="region">Northeast</span></td>
                 </tr>
                 <tr id="zip-34476" data-zip="34476" data-city="Ocala" data-county="Marion" data-region="Northeast">
                   <th scope="row">34476</th>
-                  <td>Ocala</td>
-                  <td>Marion</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Ocala</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Marion</a></td>
                   <td><span class="region">Northeast</span></td>
                 </tr>
                 <tr id="zip-34741" data-zip="34741" data-city="Kissimmee" data-county="Osceola" data-region="Central">
                   <th scope="row">34741</th>
-                  <td>Kissimmee</td>
-                  <td>Osceola</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Kissimmee</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Osceola</a></td>
                   <td><span class="region">Central</span></td>
                 </tr>
                 <tr id="zip-34743" data-zip="34743" data-city="Kissimmee" data-county="Osceola" data-region="Central">
                   <th scope="row">34743</th>
-                  <td>Kissimmee</td>
-                  <td>Osceola</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Kissimmee</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Osceola</a></td>
                   <td><span class="region">Central</span></td>
                 </tr>
                 <tr id="zip-34744" data-zip="34744" data-city="Kissimmee" data-county="Osceola" data-region="Central">
                   <th scope="row">34744</th>
-                  <td>Kissimmee</td>
-                  <td>Osceola</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Kissimmee</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Osceola</a></td>
                   <td><span class="region">Central</span></td>
                 </tr>
                 <tr id="zip-34746" data-zip="34746" data-city="Kissimmee" data-county="Osceola" data-region="Central">
                   <th scope="row">34746</th>
-                  <td>Kissimmee</td>
-                  <td>Osceola</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Kissimmee</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Osceola</a></td>
                   <td><span class="region">Central</span></td>
                 </tr>
                 <tr id="zip-34747" data-zip="34747" data-city="Kissimmee" data-county="Osceola" data-region="Central">
                   <th scope="row">34747</th>
-                  <td>Kissimmee</td>
-                  <td>Osceola</td>
+                  <td><a class="city-link" href="#" data-link-preview="true">Kissimmee</a></td>
+                  <td><a class="county-link" href="#" data-link-preview="true">Osceola</a></td>
                   <td><span class="region">Central</span></td>
                 </tr>
               </tbody>
@@ -2036,154 +2044,154 @@ tr:target th,tr:target td{background:#e9f0ff}
           <div class="city-grid">
             <div class="city" id="city-boca-raton">
               <div class="city-head">
-                <h3>Boca Raton</h3>
+                <h3><a class="city-link" href="#" data-link-preview="true">Boca Raton</a></h3>
                 <span class="n">6 ZIPs</span>
               </div>
               <div class="zip-links"><a href="#zip-33428">33428</a><a href="#zip-33431">33431</a><a href="#zip-33432">33432</a><a href="#zip-33433">33433</a><a href="#zip-33434">33434</a><a href="#zip-33487">33487</a></div>
             </div>
             <div class="city" id="city-cape-coral">
               <div class="city-head">
-                <h3>Cape Coral</h3>
+                <h3><a class="city-link" href="#" data-link-preview="true">Cape Coral</a></h3>
                 <span class="n">5 ZIPs</span>
               </div>
               <div class="zip-links"><a href="#zip-33904">33904</a><a href="#zip-33909">33909</a><a href="#zip-33914">33914</a><a href="#zip-33990">33990</a><a href="#zip-33991">33991</a></div>
             </div>
             <div class="city" id="city-clearwater">
               <div class="city-head">
-                <h3>Clearwater</h3>
+                <h3><a class="city-link" href="#" data-link-preview="true">Clearwater</a></h3>
                 <span class="n">5 ZIPs</span>
               </div>
               <div class="zip-links"><a href="#zip-33755">33755</a><a href="#zip-33756">33756</a><a href="#zip-33759">33759</a><a href="#zip-33761">33761</a><a href="#zip-33764">33764</a></div>
             </div>
             <div class="city" id="city-daytona-beach">
               <div class="city-head">
-                <h3>Daytona Beach</h3>
+                <h3><a class="city-link" href="#" data-link-preview="true">Daytona Beach</a></h3>
                 <span class="n">5 ZIPs</span>
               </div>
               <div class="zip-links"><a href="#zip-32114">32114</a><a href="#zip-32117">32117</a><a href="#zip-32118">32118</a><a href="#zip-32119">32119</a><a href="#zip-32124">32124</a></div>
             </div>
             <div class="city" id="city-fort-lauderdale">
               <div class="city-head">
-                <h3>Fort Lauderdale</h3>
+                <h3><a class="city-link" href="#" data-link-preview="true">Fort Lauderdale</a></h3>
                 <span class="n">8 ZIPs</span>
               </div>
-              <div class="zip-links"><a href="#zip-33301">33301</a><a href="#zip-33304">33304</a><a href="#zip-33305">33305</a><a href="#zip-33308">33308</a><a href="#zip-33311">33311</a><a href="#zip-33312">33312</a><a href="#zip-33315">33315</a><a href="#zip-33316">33316</a></div>
+              <div class="zip-links"><a href="#zip-33301">33301</a><a href="#zip-33304">33304</a><a href="#zip-33305">33305</a><a href="#zip-33308">33308</a><a href="#zip-33311">33311</a><a href="#zip-33312">33312</a><a href="#zip-33315">33315</a><a class="zip-more" href="#" data-link-preview="true">More</a></div>
             </div>
             <div class="city" id="city-fort-myers">
               <div class="city-head">
-                <h3>Fort Myers</h3>
+                <h3><a class="city-link" href="#" data-link-preview="true">Fort Myers</a></h3>
                 <span class="n">5 ZIPs</span>
               </div>
               <div class="zip-links"><a href="#zip-33901">33901</a><a href="#zip-33907">33907</a><a href="#zip-33908">33908</a><a href="#zip-33916">33916</a><a href="#zip-33919">33919</a></div>
             </div>
             <div class="city" id="city-gainesville">
               <div class="city-head">
-                <h3>Gainesville</h3>
+                <h3><a class="city-link" href="#" data-link-preview="true">Gainesville</a></h3>
                 <span class="n">5 ZIPs</span>
               </div>
               <div class="zip-links"><a href="#zip-32601">32601</a><a href="#zip-32605">32605</a><a href="#zip-32606">32606</a><a href="#zip-32608">32608</a><a href="#zip-32609">32609</a></div>
             </div>
             <div class="city" id="city-hialeah">
               <div class="city-head">
-                <h3>Hialeah</h3>
+                <h3><a class="city-link" href="#" data-link-preview="true">Hialeah</a></h3>
                 <span class="n">4 ZIPs</span>
               </div>
               <div class="zip-links"><a href="#zip-33010">33010</a><a href="#zip-33012">33012</a><a href="#zip-33013">33013</a><a href="#zip-33016">33016</a></div>
             </div>
             <div class="city" id="city-jacksonville">
               <div class="city-head">
-                <h3>Jacksonville</h3>
+                <h3><a class="city-link" href="#" data-link-preview="true">Jacksonville</a></h3>
                 <span class="n">10 ZIPs</span>
               </div>
-              <div class="zip-links"><a href="#zip-32202">32202</a><a href="#zip-32204">32204</a><a href="#zip-32207">32207</a><a href="#zip-32210">32210</a><a href="#zip-32211">32211</a><a href="#zip-32216">32216</a><a href="#zip-32218">32218</a><a href="#zip-32224">32224</a><a href="#zip-32246">32246</a><a href="#zip-32277">32277</a></div>
+              <div class="zip-links"><a href="#zip-32202">32202</a><a href="#zip-32204">32204</a><a href="#zip-32207">32207</a><a href="#zip-32210">32210</a><a href="#zip-32211">32211</a><a href="#zip-32216">32216</a><a href="#zip-32218">32218</a><a class="zip-more" href="#" data-link-preview="true">More</a></div>
             </div>
             <div class="city" id="city-kissimmee">
               <div class="city-head">
-                <h3>Kissimmee</h3>
+                <h3><a class="city-link" href="#" data-link-preview="true">Kissimmee</a></h3>
                 <span class="n">5 ZIPs</span>
               </div>
               <div class="zip-links"><a href="#zip-34741">34741</a><a href="#zip-34743">34743</a><a href="#zip-34744">34744</a><a href="#zip-34746">34746</a><a href="#zip-34747">34747</a></div>
             </div>
             <div class="city" id="city-lakeland">
               <div class="city-head">
-                <h3>Lakeland</h3>
+                <h3><a class="city-link" href="#" data-link-preview="true">Lakeland</a></h3>
                 <span class="n">6 ZIPs</span>
               </div>
               <div class="zip-links"><a href="#zip-33801">33801</a><a href="#zip-33803">33803</a><a href="#zip-33805">33805</a><a href="#zip-33809">33809</a><a href="#zip-33811">33811</a><a href="#zip-33813">33813</a></div>
             </div>
             <div class="city" id="city-melbourne">
               <div class="city-head">
-                <h3>Melbourne</h3>
+                <h3><a class="city-link" href="#" data-link-preview="true">Melbourne</a></h3>
                 <span class="n">6 ZIPs</span>
               </div>
               <div class="zip-links"><a href="#zip-32901">32901</a><a href="#zip-32904">32904</a><a href="#zip-32905">32905</a><a href="#zip-32934">32934</a><a href="#zip-32935">32935</a><a href="#zip-32940">32940</a></div>
             </div>
             <div class="city" id="city-miami">
               <div class="city-head">
-                <h3>Miami</h3>
+                <h3><a class="city-link" href="#" data-link-preview="true">Miami</a></h3>
                 <span class="n">8 ZIPs</span>
               </div>
-              <div class="zip-links"><a href="#zip-33125">33125</a><a href="#zip-33127">33127</a><a href="#zip-33130">33130</a><a href="#zip-33133">33133</a><a href="#zip-33135">33135</a><a href="#zip-33137">33137</a><a href="#zip-33142">33142</a><a href="#zip-33145">33145</a></div>
+              <div class="zip-links"><a href="#zip-33125">33125</a><a href="#zip-33127">33127</a><a href="#zip-33130">33130</a><a href="#zip-33133">33133</a><a href="#zip-33135">33135</a><a href="#zip-33137">33137</a><a href="#zip-33142">33142</a><a class="zip-more" href="#" data-link-preview="true">More</a></div>
             </div>
             <div class="city" id="city-naples">
               <div class="city-head">
-                <h3>Naples</h3>
+                <h3><a class="city-link" href="#" data-link-preview="true">Naples</a></h3>
                 <span class="n">6 ZIPs</span>
               </div>
               <div class="zip-links"><a href="#zip-34102">34102</a><a href="#zip-34103">34103</a><a href="#zip-34104">34104</a><a href="#zip-34105">34105</a><a href="#zip-34108">34108</a><a href="#zip-34109">34109</a></div>
             </div>
             <div class="city" id="city-ocala">
               <div class="city-head">
-                <h3>Ocala</h3>
+                <h3><a class="city-link" href="#" data-link-preview="true">Ocala</a></h3>
                 <span class="n">5 ZIPs</span>
               </div>
               <div class="zip-links"><a href="#zip-34470">34470</a><a href="#zip-34471">34471</a><a href="#zip-34472">34472</a><a href="#zip-34474">34474</a><a href="#zip-34476">34476</a></div>
             </div>
             <div class="city" id="city-orlando">
               <div class="city-head">
-                <h3>Orlando</h3>
+                <h3><a class="city-link" href="#" data-link-preview="true">Orlando</a></h3>
                 <span class="n">8 ZIPs</span>
               </div>
-              <div class="zip-links"><a href="#zip-32801">32801</a><a href="#zip-32803">32803</a><a href="#zip-32806">32806</a><a href="#zip-32809">32809</a><a href="#zip-32819">32819</a><a href="#zip-32822">32822</a><a href="#zip-32828">32828</a><a href="#zip-32839">32839</a></div>
+              <div class="zip-links"><a href="#zip-32801">32801</a><a href="#zip-32803">32803</a><a href="#zip-32806">32806</a><a href="#zip-32809">32809</a><a href="#zip-32819">32819</a><a href="#zip-32822">32822</a><a href="#zip-32828">32828</a><a class="zip-more" href="#" data-link-preview="true">More</a></div>
             </div>
             <div class="city" id="city-pensacola">
               <div class="city-head">
-                <h3>Pensacola</h3>
+                <h3><a class="city-link" href="#" data-link-preview="true">Pensacola</a></h3>
                 <span class="n">8 ZIPs</span>
               </div>
-              <div class="zip-links"><a href="#zip-32501">32501</a><a href="#zip-32503">32503</a><a href="#zip-32504">32504</a><a href="#zip-32505">32505</a><a href="#zip-32506">32506</a><a href="#zip-32507">32507</a><a href="#zip-32514">32514</a><a href="#zip-32526">32526</a></div>
+              <div class="zip-links"><a href="#zip-32501">32501</a><a href="#zip-32503">32503</a><a href="#zip-32504">32504</a><a href="#zip-32505">32505</a><a href="#zip-32506">32506</a><a href="#zip-32507">32507</a><a href="#zip-32514">32514</a><a class="zip-more" href="#" data-link-preview="true">More</a></div>
             </div>
             <div class="city" id="city-sarasota">
               <div class="city-head">
-                <h3>Sarasota</h3>
+                <h3><a class="city-link" href="#" data-link-preview="true">Sarasota</a></h3>
                 <span class="n">5 ZIPs</span>
               </div>
               <div class="zip-links"><a href="#zip-34231">34231</a><a href="#zip-34232">34232</a><a href="#zip-34236">34236</a><a href="#zip-34237">34237</a><a href="#zip-34239">34239</a></div>
             </div>
             <div class="city" id="city-st-petersburg">
               <div class="city-head">
-                <h3>St. Petersburg</h3>
+                <h3><a class="city-link" href="#" data-link-preview="true">St. Petersburg</a></h3>
                 <span class="n">6 ZIPs</span>
               </div>
               <div class="zip-links"><a href="#zip-33701">33701</a><a href="#zip-33703">33703</a><a href="#zip-33705">33705</a><a href="#zip-33710">33710</a><a href="#zip-33712">33712</a><a href="#zip-33713">33713</a></div>
             </div>
             <div class="city" id="city-tallahassee">
               <div class="city-head">
-                <h3>Tallahassee</h3>
+                <h3><a class="city-link" href="#" data-link-preview="true">Tallahassee</a></h3>
                 <span class="n">6 ZIPs</span>
               </div>
               <div class="zip-links"><a href="#zip-32301">32301</a><a href="#zip-32303">32303</a><a href="#zip-32304">32304</a><a href="#zip-32308">32308</a><a href="#zip-32312">32312</a><a href="#zip-32317">32317</a></div>
             </div>
             <div class="city" id="city-tampa">
               <div class="city-head">
-                <h3>Tampa</h3>
+                <h3><a class="city-link" href="#" data-link-preview="true">Tampa</a></h3>
                 <span class="n">8 ZIPs</span>
               </div>
-              <div class="zip-links"><a href="#zip-33602">33602</a><a href="#zip-33603">33603</a><a href="#zip-33604">33604</a><a href="#zip-33606">33606</a><a href="#zip-33609">33609</a><a href="#zip-33611">33611</a><a href="#zip-33619">33619</a><a href="#zip-33629">33629</a></div>
+              <div class="zip-links"><a href="#zip-33602">33602</a><a href="#zip-33603">33603</a><a href="#zip-33604">33604</a><a href="#zip-33606">33606</a><a href="#zip-33609">33609</a><a href="#zip-33611">33611</a><a href="#zip-33619">33619</a><a class="zip-more" href="#" data-link-preview="true">More</a></div>
             </div>
             <div class="city" id="city-west-palm-beach">
               <div class="city-head">
-                <h3>West Palm Beach</h3>
+                <h3><a class="city-link" href="#" data-link-preview="true">West Palm Beach</a></h3>
                 <span class="n">5 ZIPs</span>
               </div>
               <div class="zip-links"><a href="#zip-33401">33401</a><a href="#zip-33405">33405</a><a href="#zip-33407">33407</a><a href="#zip-33411">33411</a><a href="#zip-33415">33415</a></div>
@@ -2261,6 +2269,20 @@ tr:target th,tr:target td{background:#e9f0ff}
               <span>
                 <h3>USPS Priority Mail vs Flat Rate: which costs less</h3>
                 <p>Comparing the two USPS pricing options for domestic parcels.</p>
+              </span>
+              <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h13m0 0-5-5m5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </a>
+            <a class="post" href="https://www.17track.net/en/blog/how-to-read-package-tracking-statuses">
+              <span>
+                <h3>How to read package tracking statuses</h3>
+                <p>Understand common shipment updates, handoffs and delivery exceptions at a glance.</p>
+              </span>
+              <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h13m0 0-5-5m5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </a>
+            <a class="post" href="https://www.17track.net/en/blog/what-to-do-when-a-package-is-delayed">
+              <span>
+                <h3>What to do when a package is delayed</h3>
+                <p>Practical steps for checking delays, contacting carriers and keeping delivery plans on track.</p>
               </span>
               <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h13m0 0-5-5m5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             </a>
@@ -2653,13 +2675,77 @@ tr:target th,tr:target td{background:#e9f0ff}
     });
   });
 
-  document.querySelectorAll(".zip-links a").forEach(function (link) {
+  var morePopover = document.createElement("div");
+  morePopover.className = "zip-popover";
+  morePopover.setAttribute("popover", "auto");
+  document.body.appendChild(morePopover);
+  var moreTrigger = null;
+  function positionMorePopover() {
+    if (!moreTrigger || !morePopover.matches(":popover-open")) return;
+    var box = moreTrigger.getBoundingClientRect();
+    var width = morePopover.offsetWidth;
+    var height = morePopover.offsetHeight;
+    morePopover.style.left = Math.max(16, Math.min(box.left, window.innerWidth - width - 16)) + "px";
+    morePopover.style.top = Math.max(16, box.bottom + height + 8 > window.innerHeight ? box.top - height - 8 : box.bottom + 8) + "px";
+  }
+  document.querySelectorAll(".zip-more").forEach(function (trigger, index) {
+    trigger.removeAttribute("data-link-preview");
+    trigger.setAttribute("aria-haspopup", "dialog");
+    trigger.setAttribute("aria-expanded", "false");
+    trigger.addEventListener("click", function (event) {
+      event.preventDefault();
+      if (moreTrigger === trigger && morePopover.matches(":popover-open")) {
+        morePopover.hidePopover();
+        return;
+      }
+      if (morePopover.matches(":popover-open")) morePopover.hidePopover();
+      moreTrigger = trigger;
+      var city = trigger.closest(".city").querySelector("h3").textContent.trim();
+      var shownZips = Array.prototype.map.call(trigger.parentNode.querySelectorAll('a[href^="#zip-"]'), function (link) { return link.textContent.trim(); });
+      morePopover.textContent = "";
+      var heading = document.createElement("h4");
+      heading.textContent = city + " ZIP Codes";
+      morePopover.appendChild(heading);
+      var close = document.createElement("button");
+      close.type = "button";
+      close.className = "zip-popover-close";
+      close.textContent = "×";
+      close.setAttribute("aria-label", "Close ZIP Codes");
+      close.onclick = function () { morePopover.hidePopover(); trigger.focus({preventScroll:true}); };
+      morePopover.appendChild(close);
+      var links = document.createElement("div");
+      links.className = "zip-links";
+      rows.forEach(function (row) {
+        var item = dataOf(row);
+        if (item.city !== city || shownZips.indexOf(item.zip) !== -1) return;
+        var link = document.createElement("a");
+        link.href = "#zip-" + item.zip;
+        link.textContent = item.zip;
+        link.setAttribute("data-tooltip", "Click to copy");
+        link.setAttribute("aria-label", "Copy ZIP Code " + item.zip);
+        links.appendChild(link);
+      });
+      morePopover.appendChild(links);
+      morePopover.showPopover();
+      trigger.setAttribute("aria-expanded", "true");
+      positionMorePopover();
+    });
+  });
+  morePopover.addEventListener("toggle", function (event) {
+    if (event.newState === "closed" && moreTrigger) moreTrigger.setAttribute("aria-expanded", "false");
+  });
+  window.addEventListener("resize", positionMorePopover);
+  window.addEventListener("scroll", function () {
+    if (morePopover.matches(":popover-open")) morePopover.hidePopover();
+  }, { passive:true });
+
+  document.querySelectorAll('.zip-links a[href^="#zip-"]').forEach(function (link) {
     link.setAttribute("data-tooltip", "Click to copy");
     link.setAttribute("aria-label", "Copy ZIP Code " + link.textContent.trim());
   });
 
   document.addEventListener("click", function (event) {
-    var link = event.target.closest ? event.target.closest(".zip-links a") : null;
+    var link = event.target.closest ? event.target.closest('.zip-links a[href^="#zip-"]') : null;
     if (!link) return;
     event.preventDefault();
     var zip = (link.getAttribute("href") || "").replace("#zip-", "");
@@ -2724,6 +2810,10 @@ tr:target th,tr:target td{background:#e9f0ff}
       URL.revokeObjectURL(url);
     }, 0);
     toast("CSV downloaded: " + rows.length + " demo records.");
+  });
+
+  document.querySelectorAll("[data-link-preview]").forEach(function (link) {
+    link.addEventListener("click", function (event) { event.preventDefault(); });
   });
 
   var tocLinks = Array.prototype.slice.call(document.querySelectorAll(".side-nav a"));
