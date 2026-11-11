@@ -570,6 +570,7 @@ tr.is-match th:first-child{box-shadow:inset 2px 0 0 var(--brand)}
 .table-toggle svg{width:16px;height:16px;transition:transform .18s ease}
 .table-toggle[aria-expanded="true"] svg{transform:rotate(180deg)}
 .scroll-hint{display:none}
+.sticky-table-head{display:none}
 .empty{margin-top:16px;padding:26px 16px;border:1px dashed var(--line);border-radius:10px;text-align:center;font-size:14px;color:var(--muted)}
 .empty[hidden]{display:none}
 
@@ -751,6 +752,9 @@ tr:target th,tr:target td{background:#e9f0ff}
   .hero-layout{grid-template-columns:minmax(0,1fr);gap:32px;min-height:0}
   .hero-ad{display:none}
   .banner-ad{margin-inline:auto}
+  .foot-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
+}
+@media (max-width:1023px){
   .layout{grid-template-columns:minmax(0,1fr);gap:18px}
   .side{position:static;display:block}
   .side > .side-card:not(.side-nav-card){display:none}
@@ -767,9 +771,13 @@ tr:target th,tr:target td{background:#e9f0ff}
   .side-nav a.is-active::before{left:0;width:3px;border-radius:999px}
   .foot-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
 }
-@media (max-width:767px){
+@media (max-width:1023px){
   :root{--head-h:64px}
   .brand img{width:117px}
+  .hero-copy{text-align:center}
+  .hero-lede{margin-inline:auto}
+  .pills{justify-content:center}
+  .search-card{margin-inline:auto;text-align:left}
   .side{
     position:sticky;top:var(--head-h);z-index:50;min-width:0;
     margin-inline:calc(var(--pad) * -1);
@@ -805,8 +813,12 @@ tr:target th,tr:target td{background:#e9f0ff}
     font-size:11.5px;color:var(--muted);
   }
   .scroll-hint svg{width:13px;height:13px;flex:0 0 auto}
-  .zip-table thead th{position:static}
-  .zip-table thead th:first-child{position:sticky;left:0;top:auto;z-index:4}
+  .sticky-table-head{display:block;position:sticky;top:calc(var(--head-h) + 52px);z-index:5;height:40px;overflow:hidden;background:var(--surface);border-radius:10px 10px 0 0}
+  .sticky-table-head .zip-table{min-width:540px;transform:translateX(0);transition:none}
+  .sticky-table-head .zip-table thead th{position:static}
+  .sticky-table-head .zip-table thead th:first-child{position:sticky;left:0;z-index:4}
+  .table-head-enhanced .table-scroll .zip-table thead{display:none}
+  .table-scroll .zip-table tbody th:first-child{position:sticky;left:0;z-index:2}
   .zip-table tbody th:first-child{position:sticky;left:0;z-index:2}
   .zip-table th,.zip-table td{padding:9px 13px}
   .promo{display:flex;flex-direction:column;align-items:stretch;gap:20px}
@@ -815,6 +827,13 @@ tr:target th,tr:target td{background:#e9f0ff}
   .promo p{order:1;margin-top:-15px}
   .promo-art{display:block;order:2;width:min(280px,100%);align-self:center}
   .promo-actions{order:3;margin-top:0}
+}
+@media (min-width:768px) and (max-width:1023px){
+  .promo{flex-direction:row;flex-wrap:nowrap;align-items:center;gap:24px}
+  .promo-copy{display:block;flex:1 1 0;min-width:0;max-width:none}
+  .promo p{margin-top:5px}
+  .promo-actions{margin-top:22px}
+  .promo-art{flex:0 0 32%;width:32%;max-width:300px;align-self:center}
 }
 @media (max-width:639px){
   .card-head{grid-template-columns:minmax(0,1fr);gap:12px}
@@ -2310,6 +2329,26 @@ tr:target th,tr:target td{background:#e9f0ff}
   var shown = document.getElementById("shown-count");
   var empty = document.getElementById("zip-empty");
   var tableBlock = document.querySelector(".table-block");
+  var tableScroll = tableBlock.querySelector(".table-scroll");
+  var sourceTable = tableScroll.querySelector(".zip-table");
+  var stickyHead = document.createElement("div");
+  stickyHead.className = "sticky-table-head";
+  stickyHead.setAttribute("aria-hidden", "true");
+  var headTable = document.createElement("table");
+  headTable.className = "zip-table";
+  headTable.appendChild(sourceTable.querySelector("colgroup").cloneNode(true));
+  headTable.appendChild(sourceTable.querySelector("thead").cloneNode(true));
+  stickyHead.appendChild(headTable);
+  tableBlock.insertBefore(stickyHead, tableScroll);
+  tableBlock.classList.add("table-head-enhanced");
+  function syncTableHead() {
+    headTable.style.width = sourceTable.getBoundingClientRect().width + "px";
+    stickyHead.scrollLeft = tableScroll.scrollLeft;
+  }
+  tableScroll.addEventListener("scroll", syncTableHead, { passive: true });
+  window.addEventListener("resize", syncTableHead);
+  if ("ResizeObserver" in window) new ResizeObserver(syncTableHead).observe(tableScroll);
+  syncTableHead();
   var toastEl = document.getElementById("toast");
   var total = rows.length;
   var active = -1;
