@@ -840,6 +840,21 @@ tr:target th,tr:target td{background:#e9f0ff}
 .zip-panel p{max-width:min(400px,56%);margin:0;color:#212121;font-size:24px;font-weight:700;line-height:48px}
 .zip-panel a{display:inline-flex;align-items:center;justify-content:center;margin-top:40px;padding:10px 28px;border-radius:8px;background:#003a9b;color:#fff;font-size:18px;font-weight:600;text-decoration:none}
 .zip-panel a:hover{background:#004dbf}
+.zip-faq{max-width:950px;margin:0 auto 64px;padding:0 30px;scroll-margin-top:calc(var(--head-h) + 16px)}
+.zip-faq h2{margin:0;color:#212121;font-size:32px;font-weight:700;line-height:1.2}
+.faq{margin-top:16px;border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq details:last-child{border-bottom:0}
+.faq summary{
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  min-height:54px;padding:15px 0;cursor:pointer;list-style:none;
+  font-size:15px;font-weight:600;line-height:1.5;color:#212121;
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:hover{color:var(--brand)}
+.faq summary .ic{flex:0 0 auto;width:16px;height:16px;color:var(--muted);transition:transform .18s ease,color .18s ease}
+.faq details[open] summary .ic{transform:rotate(45deg);color:var(--brand)}
+.faq .ans{margin:0;padding:0 24px 16px 0;max-width:88ch;font-size:14px;line-height:1.7;color:var(--body)}
 @media (max-width:1023px){
   .zip-globe{top:-28%;right:-24vw;width:108vw;height:190%;opacity:.55}
   .zip-banner .banner-wrap{width:100%}
@@ -1616,6 +1631,82 @@ tr:target th,tr:target td{background:#e9f0ff}
       </div>
     </div>
   </section>
+
+  <section class="zip-faq" id="faqs" aria-labelledby="faq-title">
+    <h2 id="faq-title">Frequently asked questions</h2>
+    <div class="faq">
+      <details>
+        <summary>
+          <span>How do I look up the ZIP Code for a city or address?</span>
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg>
+        </summary>
+        <p class="ans">Start from the state list on this page, open the state you need, then search by ZIP Code prefix such as 331, or by city or county name. Each result shows the state, city, county and region that the ZIP Code record maps to.</p>
+      </details>
+      <details>
+        <summary>
+          <span>What does each ZIP Code record include?</span>
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg>
+        </summary>
+        <p class="ans">A record lists the five-digit ZIP Code, the city it is assigned to, the county, the state or region, and the ZIP Code type (standard, PO box or unique). It does not contain street-level addresses.</p>
+      </details>
+      <details>
+        <summary>
+          <span>Is this directory an official or complete ZIP Code list?</span>
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg>
+        </summary>
+        <p class="ans">No. The directory ships as a demo set and is not an official USPS source. The Florida page currently carries 135 demo records covering 22 cities in 18 of the state's 67 counties, and a production launch needs a verified postal dataset. Do not use these pages to validate a mailing address.</p>
+      </details>
+      <details>
+        <summary>
+          <span>How is a ZIP Code different from a postal code or ZIP+4?</span>
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg>
+        </summary>
+        <p class="ans">ZIP Code is the United States Postal Service scheme: five digits that narrow from a national region down to a delivery area. “Postal code” is the general term used by other countries, such as UK postcodes. ZIP+4 adds four digits after the five to identify a smaller segment or block face; this directory lists the five-digit form only.</p>
+      </details>
+      <details>
+        <summary>
+          <span>Why can one city have several ZIP Codes?</span>
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg>
+        </summary>
+        <p class="ans">ZIP Codes follow delivery routes and post offices, not city limits. A mid-size city usually has dozens of them, and neighbouring ZIP Codes can serve different neighbourhoods of the same city. Each record here maps a ZIP Code to the one city it is primarily assigned to.</p>
+      </details>
+      <details>
+        <summary>
+          <span>Can a single ZIP Code cover more than one county?</span>
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg>
+        </summary>
+        <p class="ans">Yes. ZIP Code boundaries are drawn for mail delivery and often cross county or even state lines, especially in rural areas. A record here lists the county that the assigned post office sits in, so treat the county field as the primary county rather than the full footprint.</p>
+      </details>
+      <details>
+        <summary>
+          <span>Do I need a ZIP Code to track a package?</span>
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg>
+        </summary>
+        <p class="ans">No. 17TRACK looks up a shipment by its tracking number alone. A ZIP Code is only useful as context: it tells you which city and county the destination belongs to, which helps when a carrier's scan or a delivery exception mentions a place name.</p>
+      </details>
+      <details>
+        <summary>
+          <span>Can I download the ZIP Code list as a CSV file?</span>
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg>
+        </summary>
+        <p class="ans">Yes. The download button on a state page exports the records shown there with zip_code, city, county, state, region and zip_type columns. The file is generated in the browser and contains only the demo set, with no verification status attached.</p>
+      </details>
+      <details>
+        <summary>
+          <span>How often is the directory updated?</span>
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg>
+        </summary>
+        <p class="ans">There is no scheduled refresh yet: the pages hold a static snapshot built for layout and search testing. A launched directory needs a verified postal feed and a stated update cadence, because the USPS adds and retires ZIP Codes every quarter.</p>
+      </details>
+      <details>
+        <summary>
+          <span>Which states and cities are covered today?</span>
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg>
+        </summary>
+        <p class="ans">All 50 states are listed and linked, and the 20 most-searched cities have their own entries on this page. The record tables behind those links currently hold the Florida demo set, so a state page opens with the same layout and sample data until its own dataset is imported.</p>
+      </details>
+    </div>
+  </section>
 </main>
 <footer class="footer_footer__FTcpD site-footer"><div class="site-footer-inner"><div class="site-footer-main"><section class="site-footer-brand"><a class="site-footer-logo" href="https://www.17track.net/en" aria-label="17TRACK"><img src="assets/footer/logo-footer.svg" alt="17TRACK" width="150" height="24" decoding="async"></a><div class="site-footer-who"><h3>Who We Are</h3><p>Track all your orders in one place. Sign up to get notifications at every step, and keep your orders organized and managed here.</p></div><div class="site-footer-badges" aria-label="17TRACK apps"><a href="https://apps.apple.com/cn/app/17track-国际物流轨迹查询/id6761287858" target="_blank" rel="noreferrer"><img src="assets/footer/badge-appstore.png" alt="Download on the App Store" width="154" height="44" decoding="async"></a><a href="https://play.google.com/store/apps/details?id=yqtrack.app" target="_blank" rel="noreferrer"><img src="assets/footer/badge-googleplay.png" alt="Get it on Google Play" width="154" height="44" decoding="async"></a></div><div class="site-footer-social" aria-label="Social links"><button type="button" class="site-footer-social-link footer_fa-wechat__nhaTI" data-social="fa-wechat" aria-label="微信" title="微信"><span class="fa-wechat footer_fa-wechat__nhaTI" aria-hidden="true"></span><span class="site-footer-popover footer_popover__Wgikp footer_wx-code__V24mr"></span></button><button type="button" class="site-footer-social-link footer_fa-weibo__cQPxR" data-social="fa-weibo" aria-label="新浪微博" title="新浪微博"><span class="fa-weibo footer_fa-weibo__cQPxR" aria-hidden="true"></span><span class="site-footer-popover footer_popover__Wgikp footer_wb-code__A7vvZ"></span></button><a class="site-footer-social-link footer_fa-facebook__Kke6w" data-social="fa-facebook" href="https://www.facebook.com/17track" target="_blank" rel="noreferrer" aria-label="Facebook"><span class="fa-facebook footer_fa-facebook__Kke6w" aria-hidden="true"></span></a><a class="site-footer-social-link footer_fa-twitter__qGdQo" data-social="fa-twitter" href="https://twitter.com/17track" target="_blank" rel="noreferrer" aria-label="Twitter"><span class="fa-twitter footer_fa-twitter__qGdQo" aria-hidden="true"></span></a><a class="site-footer-social-link" data-social="linkedin" href="https://www.linkedin.com/company/17track" target="_blank" rel="noreferrer" aria-label="LinkeIn"><img src="assets/footer/linke_in.svg" alt="LinkeIn" width="24" height="24" decoding="async"></a><a class="site-footer-social-link" data-social="youtube" href="https://www.youtube.com/@17TRACKOFFICIAL" target="_blank" rel="noreferrer" aria-label="Youtube"><img src="assets/footer/youtube.svg" alt="Youtube" width="24" height="24" decoding="async"></a></div></section><nav class="site-footer-nav" aria-label="Footer"><div class="site-footer-col"><h3>About</h3><a href="https://www.17track.net/en/about?" target="_self">About us</a><a href="https://www.17track.net/en/about/licensing?" target="_self">Terms</a><a href="https://www.17track.net/en/about/privacy?" target="_self">Privacy</a><a href="https://www.17track.net/en/about/copyright?" target="_self">Copyright</a><a href="https://www.17track.net/en/about/dpa?" target="_self">DPA</a></div><div class="site-footer-col"><h3>User Guide</h3><a href="https://www.17track.net//help.17track.net/hc/en-us/articles/228250808?" target="_self">Instruction manual</a><a href="https://www.17track.net//help.17track.net/hc/en-us/articles/228084227?" target="_self">Package status</a><a href="https://www.17track.net//help.17track.net/hc/en-us/articles/228084247?" target="_self">Tracking status</a><a href="https://www.17track.net//help.17track.net/hc/en-us/articles/228084367?" target="_self">Shipping tips</a><a href="https://www.17track.net/en/tracking" target="_blank" rel="noreferrer">Tracking page</a><a href="https://www.17track.net/en/brands" target="_blank" rel="noreferrer">Brands</a></div><div class="site-footer-col"><h3>Help</h3><a href="https://www.17track.net/en/about/contactus?" target="_self">Contact us</a><a href="https://www.17track.net//help.17track.net/hc/en-us?" target="_self">Help center</a><a href="https://www.17track.net//help.17track.net/hc/en-us/articles/228084447?" target="_self">Suggestion &amp; Feedback</a><a href="https://www.17track.net//www.17track.net/en/donate?" target="_self">Donate</a><a href="https://www.17track.net/en/links" target="_self">Partners</a><a href="https://www.17track.net/en/blog" target="_self">Blog</a></div></nav></div><div class="site-footer-bottom"><div class="site-footer-bottom-inner"><div class="site-footer-bottom-left"><details class="footer_langWrap__LmkDQ"><summary class="site-footer-lang">English<span aria-hidden="true">⌃</span></summary><div class="custom-scroll dropdown_lang_custom-dropdown-menu__R6a4a dropdown_lang_footer__qAowi"><div><div class="dropdown_lang_list-group-menu__CInRY"><a target="_blank" rel="noreferrer" href="https://help.17track.net/hc/en/articles/235533167" title="Help us translate">Help us translate</a></div><div class="dropdown_lang_divider__7mPee"></div><div class="dropdown_lang_list-group-menu__CInRY dropdown_lang_active__0ktWv"><a title="English" aria-current="true" href="https://www.17track.net/en"><div>English</div></a></div><div class="dropdown_lang_list-group-menu__CInRY"><a title="简体中文" href="https://www.17track.net/zh-cn"><div>简体中文</div></a></div><div class="dropdown_lang_list-group-menu__CInRY"><a title="繁體中文" href="https://www.17track.net/zh-hk"><div>繁體中文</div></a></div><div class="dropdown_lang_list-group-menu__CInRY"><a title="Русский" href="https://www.17track.net/ru"><div>Русский</div></a></div><div class="dropdown_lang_list-group-menu__CInRY"><a title="Español" href="https://www.17track.net/es"><div>Español</div></a></div><div class="dropdown_lang_list-group-menu__CInRY"><a title="Português" href="https://www.17track.net/pt"><div>Português</div></a></div><div class="dropdown_lang_list-group-menu__CInRY"><a title="Français" href="https://www.17track.net/fr"><div>Français</div></a></div><div class="dropdown_lang_list-group-menu__CInRY"><a title="Italiano" href="https://www.17track.net/it"><div>Italiano</div></a></div><div class="dropdown_lang_list-group-menu__CInRY"><a title="Deutsch" href="https://www.17track.net/de"><div>Deutsch</div></a></div><div class="dropdown_lang_list-group-menu__CInRY"><a title="Türkçe" href="https://www.17track.net/tr"><div>Türkçe</div></a></div><div class="dropdown_lang_list-group-menu__CInRY"><a title="Čeština" href="https://www.17track.net/cs"><div>Čeština</div></a></div><div class="dropdown_lang_list-group-menu__CInRY"><a title="日本語" href="https://www.17track.net/ja"><div>日本語</div></a></div><div class="dropdown_lang_list-group-menu__CInRY"><a title="한국어" href="https://www.17track.net/ko"><div>한국어</div></a></div><div class="dropdown_lang_list-group-menu__CInRY"><a title="Nederlands" href="https://www.17track.net/nl"><div>Nederlands</div></a></div><div class="dropdown_lang_list-group-menu__CInRY"><a title="Suomi" href="https://www.17track.net/fi"><div>Suomi</div></a></div><div class="dropdown_lang_list-group-menu__CInRY"><a title="Polski" href="https://www.17track.net/pl"><div>Polski</div></a></div><div class="dropdown_lang_list-group-menu__CInRY"><a title="Українська" href="https://www.17track.net/uk"><div>Українська</div></a></div><div class="dropdown_lang_list-group-menu__CInRY"><a title="Magyar" href="https://www.17track.net/hu"><div>Magyar</div></a></div><div class="dropdown_lang_list-group-menu__CInRY"><a title="Svenska" href="https://www.17track.net/sv"><div>Svenska</div></a></div><div class="dropdown_lang_list-group-menu__CInRY"><a title="Қазақша" href="https://www.17track.net/kk"><div>Қазақша</div></a></div><div class="dropdown_lang_list-group-menu__CInRY"><a title="Ελληνικά" href="https://www.17track.net/el"><div>Ελληνικά</div></a></div><div class="dropdown_lang_list-group-menu__CInRY"><a title="ภาษาไทย" href="https://www.17track.net/th"><div>ภาษาไทย</div></a></div><div class="dropdown_lang_list-group-menu__CInRY"><a title="Български" href="https://www.17track.net/bg"><div>Български</div></a></div><div class="dropdown_lang_list-group-menu__CInRY"><a title="Slovenčina" href="https://www.17track.net/sk"><div>Slovenčina</div></a></div><div class="dropdown_lang_list-group-menu__CInRY"><a title="Lietuvių" href="https://www.17track.net/lt"><div>Lietuvių</div></a></div><div class="dropdown_lang_list-group-menu__CInRY"><a title="Română" href="https://www.17track.net/ro"><div>Română</div></a></div><div class="dropdown_lang_list-group-menu__CInRY"><a title="Norsk" href="https://www.17track.net/no"><div>Norsk</div></a></div><div class="dropdown_lang_list-group-menu__CInRY"><a title="Shqip" href="https://www.17track.net/sq"><div>Shqip</div></a></div><div class="dropdown_lang_list-group-menu__CInRY"><a title="Slovenščina" href="https://www.17track.net/sl"><div>Slovenščina</div></a></div><div class="dropdown_lang_list-group-menu__CInRY"><a title="Српски" href="https://www.17track.net/sr"><div>Српски</div></a></div><div class="dropdown_lang_list-group-menu__CInRY"><a title="Azərbaycan" href="https://www.17track.net/az"><div>Azərbaycan</div></a></div><div class="dropdown_lang_list-group-menu__CInRY"><a title="Dansk" href="https://www.17track.net/da"><div>Dansk</div></a></div><div class="dropdown_lang_list-group-menu__CInRY"><a title="Македонски" href="https://www.17track.net/mk"><div>Македонски</div></a></div></div></div></details><div class="site-footer-legal"><a href="https://www.17track.net/en/about/privacy">Privacy</a><a href="https://www.17track.net/en/about/copyright">Copyright</a><a href="https://www.17track.net/en/contact-us">Contact us</a></div></div><p class="site-footer-copy">© Copyright 2011-<!-- -->2026<!-- --> 17TRACK All Rights Reserved&nbsp;<a target="_blank" href="https://beian.miit.gov.cn" rel="nofollow noreferrer">粤ICP备11015089号</a></p></div></div></div></footer>
 <script>
@@ -1703,6 +1794,53 @@ tr:target th,tr:target td{background:#e9f0ff}
     else cancelAnimationFrame(frame);
   }, { rootMargin: "120px" });
   observer.observe(canvas);
+})();
+</script>
+
+<script>
+(function () {
+  "use strict";
+  document.querySelectorAll(".faq details").forEach(function (item) {
+    var summary = item.querySelector("summary");
+    var animation;
+    var finishTimer;
+    var expanded = item.open;
+    summary.setAttribute("aria-expanded", String(expanded));
+    function toggle(open) {
+      expanded = open;
+      summary.setAttribute("aria-expanded", String(open));
+      var start = item.getBoundingClientRect().height;
+      window.clearTimeout(finishTimer);
+      if (animation) { animation.cancel(); animation = null; }
+      item.style.height = "";
+      item.open = true;
+      var end = open ? item.getBoundingClientRect().height : summary.getBoundingClientRect().height + parseFloat(getComputedStyle(item).borderBottomWidth);
+      if (!item.animate || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        item.open = open;
+        return;
+      }
+      item.style.overflow = "hidden";
+      animation = item.animate([{height:start + "px"}, {height:end + "px"}], {duration:240, easing:"cubic-bezier(.25,.8,.25,1)"});
+      function finish() {
+        window.clearTimeout(finishTimer);
+        item.open = expanded;
+        item.style.overflow = "";
+        if (animation) animation.cancel();
+        animation = null;
+      }
+      animation.onfinish = finish;
+      finishTimer = window.setTimeout(finish, 260);
+    }
+    summary.addEventListener("click", function (event) {
+      event.preventDefault();
+      if (!expanded) {
+        document.querySelectorAll(".faq details[open] summary").forEach(function (other) {
+          if (other !== summary && other.getAttribute("aria-expanded") === "true") other.click();
+        });
+      }
+      toggle(!expanded);
+    });
+  });
 })();
 </script>
 
