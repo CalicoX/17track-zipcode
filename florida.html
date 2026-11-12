@@ -243,7 +243,7 @@ button{font:inherit}
 .nav-drop > summary:hover,.nav-drop[open] > summary{background:#eef2fb;color:#0a0a0a}
 .nav-mega{
   position:absolute;top:100%;right:0;left:0;z-index:70;
-  box-sizing:border-box;padding:0 clamp(16px,5vw,80px);
+  box-sizing:border-box;padding:0;
   background:#fff;border-top:1px solid var(--line);
   box-shadow:0 18px 40px -18px rgba(16,24,40,.28);
 }
@@ -252,7 +252,7 @@ button{font:inherit}
 }
 .nav-mega-inner{
   display:flex;gap:48px;justify-content:space-between;
-  width:100%;max-width:1440px;margin:0 auto;padding:40px 24px;
+  width:100%;max-width:var(--shell);margin:0 auto;padding:40px var(--pad);
 }
 .nav-mega-list{display:flex;flex:0 0 420px;flex-direction:column;gap:32px;min-width:0}
 .nav-mega-item{
@@ -387,7 +387,7 @@ button{font:inherit}
 .ad-caption{margin-top:12px;text-align:center;font-size:10px;color:#a8bad8}
 .banner-wrap{container-type:inline-size;min-width:0;margin-top:16px}
 .banner-ad{
-  width:320px;max-width:100%;height:50px;margin:0;
+  width:320px;height:50px;margin:0;
   border:1px solid var(--line);display:flex;align-items:center;justify-content:center;gap:8px;
   font-size:12px;color:var(--muted);background:transparent;
 }
@@ -397,6 +397,7 @@ button{font:inherit}
 .banner-ad .ad-size::after{content:"320 × 50"}
 @container (min-width:468px){.banner-ad{width:468px;height:60px}.banner-ad .ad-size::after{content:"468 × 60"}}
 @container (min-width:728px){.banner-ad{width:728px;height:90px}.banner-ad .ad-size::after{content:"728 × 90"}}
+@container (min-width:970px){.banner-ad{width:970px;height:90px}.banner-ad img{object-fit:cover}.banner-ad .ad-size::after{content:"970 × 90"}}
 .crumbs{display:flex;flex-wrap:wrap;align-items:center;gap:7px;font-size:12.5px;color:var(--muted)}
 .crumbs a{color:var(--muted);text-decoration:none}
 .crumbs a:hover{color:var(--brand);text-decoration:underline}
@@ -807,7 +808,6 @@ tr:target th,tr:target td{background:#e9f0ff}
 @media (max-width:1023px){
   .hero-layout{grid-template-columns:minmax(0,1fr);gap:32px;min-height:0}
   .hero-ad{display:none}
-  .banner-ad{margin-inline:auto}
   .foot-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
 }
 @media (max-width:1023px){
@@ -919,6 +919,11 @@ tr:target th,tr:target td{background:#e9f0ff}
 .site-footer-social-link[data-social=fa-wechat] span:before{content:"●●";font-size:10px}
 .site-footer-social-link[data-social=fa-weibo] span:before{content:"◎"}
 @media(min-width:641px) and (max-width:1100px){.footer_footer__FTcpD .site-footer-bottom-inner{flex-wrap:wrap;padding:20px 0}}
+
+/* Ad slots always sit on the copy's left edge (never centered). Only when the
+   column is narrower than the smallest 320 × 50 size does the slot slide left,
+   stopping at the viewport edge so nothing is cut and nothing overflows. */
+.banner-ad{margin-right:auto;margin-left:min(0px,max(calc(var(--pad) * -1),calc(100% - 320px)))}
 </style>
 </head>
 <body id="top">
@@ -992,7 +997,7 @@ tr:target th,tr:target td{background:#e9f0ff}
               <a class="nav-mega-more" href="https://www.17track.net/en/app">View more<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
             </div>
             <div class="nav-mega-preview" data-preview-panel="zip">
-              <div class="nav-mega-shot"><img src="assets/nav/zip-code.svg" alt="" width="1600" height="600" decoding="async"></div>
+              <div class="nav-mega-shot"><img src="assets/nav/zip-code-nav.jpg" alt="" width="1600" height="600" decoding="async"></div>
               <p>Look up a US ZIP Code and see the city, county and region it belongs to. Browse the state index and download the list as a CSV file.</p>
               <a class="nav-mega-more" href="index.html">View more<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
             </div>
